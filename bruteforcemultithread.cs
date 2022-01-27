@@ -40,8 +40,8 @@ namespace BruteForceExample
             sectionSize = characters.Length / this.threads;
             threadNumber = 0;
             if (this.threads > characters.Length) this.threads = characters.Length;
-            Thread[] threadContainer = new Thread[this.threads + 1];
-            this.outputContainer = new String[this.threads + 1];
+            Thread[] threadContainer = new Thread[this.threads + 10];
+            this.outputContainer = new String[this.threads + 10];
 
             for (int i = 0; i < characters.Length; i+=sectionSize) {
                 int nextStep = i + sectionSize;
