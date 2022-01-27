@@ -24,8 +24,7 @@ namespace BruteForceExample
             this.useSpecialChars = specialChars;
             this.length = length;
         }
-        public String run()
-        {
+        public String run() {
             //Stored possibly letters, numbers, and special characters.
             String characters = "abcdefghijklmnopqrstuvwxyz";
             String numbers = "1234567890";

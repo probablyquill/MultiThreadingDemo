@@ -33,8 +33,7 @@ namespace BruteForceExample
             this.length = length;
             this.threads = threads;
         }
-        public String run()
-        {
+        public String run() {
             //Stored possibly letters, numbers, and special characters.
             String characters = "abcdefghijklmnopqrstuvwxyz";
             String numbers = "1234567890";

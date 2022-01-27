@@ -1,11 +1,8 @@
 ﻿using System;
 
-namespace BruteForceExample
-{
-    class Handler
-    {
-        static void Main(string[] args)
-        {
+namespace BruteForceExample {
+    class Handler {
+        static void Main(string[] args) {
             String response;
             int charNum;
             Boolean upperIncluded = false;
