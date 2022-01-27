@@ -5,6 +5,9 @@ namespace BruteForceExample
 {
     class MultiThreaded
     {
+        //Initialize Global Variables
+        //Importantly these can be accessed by ANY THREAD at ANY TIME
+        //Only applicaple for outputContainer in this specific program.
         Boolean uppercase = false;
         Boolean useNumbers = false;
         Boolean useSpecialChars = false;
@@ -12,6 +15,8 @@ namespace BruteForceExample
         int threads = 0;
         int length = 0;
         String[] outputContainer;
+
+        //Empty constuctor, unused.
         public MultiThreaded() {
             this.uppercase = false;
             this.useNumbers = false;
@@ -19,6 +24,8 @@ namespace BruteForceExample
             this.length = 2;
             this.threads = 2;
         }
+
+        //Main / most usable constructor.
         public MultiThreaded(Boolean uppercase, Boolean numbers, Boolean specialChars, int length, int threads) {
             this.uppercase = uppercase;
             this.useNumbers = numbers;
@@ -65,7 +72,7 @@ namespace BruteForceExample
                 if (nextStep > characters.Length) nextStep = characters.Length;
 
                 //Create the thread and store it in threadConatiner.
-                Console.WriteLine("Starting thread with parameters: " + i + ", " + nextStep + ", " + threadNumber);
+                Console.WriteLine("Starting thread " + threadNumber + " with parameters: " + i + ", " + nextStep + ".");
                 threadContainer[threadNumber] = new Thread(() => generate(newLength, 0, "", a, nextStep, character2, backupNumber));
                 threadContainer[threadNumber].Start();
                 threadNumber += 1;

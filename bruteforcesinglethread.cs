@@ -4,6 +4,7 @@ namespace BruteForceExample
 {
     class SingleThreaded
     {
+        //Initialize globally available variables.
         Boolean uppercase = false;
         Boolean useNumbers = false;
         Boolean useSpecialChars = false;

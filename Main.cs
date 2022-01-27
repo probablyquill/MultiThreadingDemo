@@ -12,9 +12,16 @@ namespace BruteForceExample
             Boolean numbersIncluded = false;
             Boolean specialIncluded = false;
             int threads = 0;
-             String outputText = "";
-
+            String outputText = "";
+            
+            Console.WriteLine("Multithreading yields a performance benifit when the generated text is three characters or longer.");
+            Console.WriteLine("Generating two characters or fewer results in worse performance the more threads are made.");
             Console.WriteLine("Threaded:\n\ta.) Yes\n\tb.) No");
+
+            //Example from tests (threads, length):
+            //1, 3 -> 144ms || 4, 3 -> 41ms || 8, 3 -> 41ms || 26, 3 -> 22ms
+            //1, 2 -> 1ms   || 4, 2 -> 4ms  || 8, 2 -> 13ms || 26, 2 -> 13ms
+            
             response = Console.ReadLine().ToUpper();
             if (response == "A" || response =="Y") {
                 Console.WriteLine("How many threads (approximately) should be made?");
