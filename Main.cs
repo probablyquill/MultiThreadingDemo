@@ -30,7 +30,7 @@ namespace BruteForceExample
             try {
                 charNum = int.Parse(Console.ReadLine());
             } catch {
-                //Bad input
+                //Bad input, assume 2.
                 charNum = 2;
             }
 
@@ -60,10 +60,12 @@ namespace BruteForceExample
             } else {
                 Console.WriteLine("Not Including Special Characters.");
             }
+
             Console.WriteLine("Running...\n");
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            if (threads > 0) {
+            //Creates a new runner object to handle the generation based on how many threads it has been told to use.
+            if (threads > 1) {
                 MultiThreaded runner = new MultiThreaded(upperIncluded, numbersIncluded, specialIncluded, charNum, threads);
                 outputText = runner.run();
             } else {
@@ -71,8 +73,8 @@ namespace BruteForceExample
                 outputText = runner.run();
             }   
 
+            //Output results
             watch.Stop();
-            Console.WriteLine(outputText);
             Console.WriteLine("The generation took " + watch.ElapsedMilliseconds + "ms to complete.");
         }
     }
