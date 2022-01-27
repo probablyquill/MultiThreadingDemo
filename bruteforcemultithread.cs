@@ -72,7 +72,7 @@ namespace BruteForceExample
                 if (nextStep > characters.Length) nextStep = characters.Length;
 
                 //Create the thread and store it in threadConatiner.
-                Console.WriteLine("Starting thread " + threadNumber + " with parameters: " + i + ", " + nextStep + ".");
+                //Console.WriteLine("Starting thread " + threadNumber + " with parameters: " + i + ", " + nextStep + ".");
                 threadContainer[threadNumber] = new Thread(() => generate(newLength, 0, "", a, nextStep, character2, backupNumber));
                 threadContainer[threadNumber].Start();
                 threadNumber += 1;
