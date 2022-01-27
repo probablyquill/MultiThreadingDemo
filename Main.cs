@@ -19,7 +19,7 @@ namespace BruteForceExample
             Console.WriteLine("Threaded:\n\ta.) Yes\n\tb.) No");
 
             //Example from tests (threads, length):
-            //1, 3 -> 144ms || 4, 3 -> 36ms || 8, 3 -> 33ms || 26, 3 -> 17ms
+            //1, 3 -> 144ms || 4, 3 -> 36ms || 8, 3 -> 33ms || 26, 3 -> 17msd
             //1, 2 -> 1ms   || 4, 2 -> 2ms  || 8, 2 -> 3ms  || 26, 2 -> 13ms
 
             response = Console.ReadLine().ToUpper();
@@ -83,6 +83,8 @@ namespace BruteForceExample
             //Output results
             watch.Stop();
             Console.WriteLine("The generation took " + watch.ElapsedMilliseconds + "ms to complete.");
+            //Wait to exit
+            Console.ReadLine();
         }
     }
 }

@@ -73,6 +73,7 @@ namespace BruteForceExample
 
                 //Create the thread and store it in threadConatiner.
                 //Console.WriteLine("Starting thread " + threadNumber + " with parameters: " + i + ", " + nextStep + ".");
+                //I don't understand lambda expressions but this works to pass a function with arguments to a thread.
                 threadContainer[threadNumber] = new Thread(() => generate(newLength, 0, "", a, nextStep, character2, backupNumber));
                 threadContainer[threadNumber].Start();
                 threadNumber += 1;
