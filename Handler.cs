@@ -11,8 +11,20 @@ namespace BruteForceExample
             Boolean upperIncluded = false;
             Boolean numbersIncluded = false;
             Boolean specialIncluded = false;
+            int threads = 0;
+             String outputText = "";
 
             Console.WriteLine("Threaded:\n\ta.) Yes\n\tb.) No");
+            response = Console.ReadLine().ToUpper();
+            if (response == "A" || response =="Y") {
+                Console.WriteLine("How many threads (approximately) should be made?");
+                try {
+                    threads = int.Parse(Console.ReadLine());
+                } catch {
+                    //Bad input
+                    threads = 0;
+                }
+            }
 
             Console.WriteLine("Number of Characters:");
             try {
@@ -51,12 +63,17 @@ namespace BruteForceExample
             Console.WriteLine("Running...\n");
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            SingleThreaded runner = new SingleThreaded(upperIncluded, numbersIncluded, specialIncluded, charNum);
-            String outputText = runner.run();
+            if (threads > 0) {
+                MultiThreaded runner = new MultiThreaded(upperIncluded, numbersIncluded, specialIncluded, charNum, threads);
+                outputText = runner.run();
+            } else {
+                SingleThreaded runner = new SingleThreaded(upperIncluded, numbersIncluded, specialIncluded, charNum);
+                outputText = runner.run();
+            }   
 
             watch.Stop();
+            Console.WriteLine(outputText);
             Console.WriteLine("The generation took " + watch.ElapsedMilliseconds + "ms to complete.");
-            //Console.WriteLine(outputText);
         }
     }
 }

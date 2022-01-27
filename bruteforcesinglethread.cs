@@ -40,7 +40,6 @@ namespace BruteForceExample
 
             if (depth < length - 1) {
                 for (int i = 0; i < characters.Length; i++) {
-                    if (depth == 0) Console.WriteLine(characters[i]);
                     previous += characters[i];
                     generate(length, depth + 1, previous, start, end, characters);
                     previous = saved;
